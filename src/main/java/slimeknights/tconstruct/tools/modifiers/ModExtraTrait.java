@@ -120,14 +120,6 @@ public class ModExtraTrait extends ToolModifier {
 
     @Override
     public boolean canApply(ItemStack stack, ItemStack original) throws TinkerGuiException {
-      NBTTagList modifierList = TagUtil.getModifiersTagList(original);
-      for(int i = 0; i < modifierList.tagCount(); i++) {
-        NBTTagCompound tag = modifierList.getCompoundTagAt(i);
-        ModifierNBT data = ModifierNBT.readTag(tag);
-        if(data.identifier.startsWith(EXTRA_TRAIT_IDENTIFIER)) {
-          throw new TinkerGuiException(Util.translate("gui.error.already_has_extratrait"));
-        }
-      }
       return true;
     }
 
